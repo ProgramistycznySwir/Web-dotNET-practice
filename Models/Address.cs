@@ -11,13 +11,13 @@ namespace HelloWorld.Models
     public class Address
     {
         [Display(Name = "Ulica")]
+        [StringLength(32, MinimumLength = 3, ErrorMessage = "Street has to have name in between 3 and 32 letters.")]
         [Required(ErrorMessage = "You have to live on some street.")]
-        [StringLength(32, MinimumLength = 3)]
         public string Street { get; set; }
 
         [Display(Name = "Kod pocztowy")]
+        [StringLength(6, MinimumLength = 5, ErrorMessage = "Zipcode has to be 6 signs long.")]
         [Required(ErrorMessage = "This street should have it's zipcode.")]
-        [StringLength(32, MinimumLength = 3)]
         public string ZipCode { get; set; }
 
         [Display(Name = "Miasto")]

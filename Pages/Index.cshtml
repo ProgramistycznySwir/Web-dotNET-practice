@@ -10,16 +10,26 @@
     </h1>
     <form method="post">
         <label asp-for="Address.Street"></label>
-        <input asp-for="Address.Street" /><br />
+        <input asp-for="Address.Street" />
+        <span asp-validation-for="Address.Street" class="text-danger"></span>
+        <br />
+
         <label asp-for="Address.Number"></label>
-        <input asp-for="Address.Number" /><br />
+        <input asp-for="Address.Number" />
+        <span asp-validation-for="Address.Number" class="text-danger"></span>
+        <br />
+
         <label asp-for="Address.ZipCode"></label>
-        <input asp-for="Address.ZipCode" /><br />
+        <input asp-for="Address.ZipCode" />
+        <span asp-validation-for="Address.ZipCode" class="text-danger"></span>
+        <br />
+
         <label asp-for="Address.City"></label>
-        <input asp-for="Address.City" /><br />
+        <input asp-for="Address.City" />
+        <span asp-validation-for="Address.City" class="text-danger"></span>
+        <br />
+
         <button type="submit">Zatwierdź</button>
     </form>
-
-    <span asp-validation-for="Address.Street" class="text-danger"></span>
 </div>
 
