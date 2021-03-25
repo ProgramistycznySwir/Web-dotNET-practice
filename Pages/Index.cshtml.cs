@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 using HelloWorld.Models;
 
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+
+
 namespace HelloWorld.Pages
 {
     public class IndexModel : PageModel
@@ -33,11 +37,21 @@ namespace HelloWorld.Pages
                 Name = "User";
         }
 
+        //public IActionResult OnPost()
+        //{
+        //    if (!ModelState.IsValid)
+        //        return Page();
+        //    return RedirectToPage("./Privacy");
+        //}
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-                return Page();
-            return RedirectToPage("./Privacy");
+            if (ModelState.IsValid)
+            {
+                HttpContext.Session.SetString("SessionAddress",
+                JsonConvert.SerializeObject(Address));
+                return RedirectToPage("./AddressList");
+            }
+            return Page();
         }
     }
 }
